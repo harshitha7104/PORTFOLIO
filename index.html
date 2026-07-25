@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshitha M P</title>
+  <meta name="description" content="Harshitha M P – Full-Stack Developer, CS Undergrad at BIT Bangalore." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:    #0f0f0f;
+      --text:  #e8e8e8;
+      --muted: #888;
+      --accent:#a78bfa;
+      --border:#222;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', serif;
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 24px 100px;
+    }
+
+/* ===========================
+   NAVIGATION
+=========================== */
+
+nav{
+    display:flex;
+    align-items:center;
+    padding-bottom:20px;
+    margin-bottom:80px;
+    border-bottom:1px solid var(--border);
+}
+
+.nav-left{
+    display:flex;
+    align-items:center;
+}
+
+.logo{
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:1px;
+    color:var(--text);
+    text-decoration:none;
+    font-family:monospace;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-left:120px;
+}
+
+nav ul li{
+    display:flex;
+    align-items:center;
+}
+
+nav ul li a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:14px;
+    font-family:monospace;
+    transition:color .25s ease;
+}
+
+nav ul li a:hover{
+    color:var(--text);
+}
+
+.divider{
+    color:var(--border);
+    font-size:14px;
+    font-family:monospace;
+    user-select:none;
+}
+
+
+/* ===========================
+   NAME 
+=========================== */
+h1{
+    font-size:clamp(52px,8vw,78px);
+    font-weight:500;
+    line-height:1.05;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+    color:var(--text);
+}
+
+h1 strong{
+    font-style:italic;
+    font-weight:500;
+    color:#60a5fa;
+}
+/* ===========================
+   HERO
+=========================== */
+.hero{
+    margin-bottom:120px;
+}
+
+.hero-links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:35px;
+    margin-bottom:80px;      /* More space before "01 About" */
+}
+
+.hero-links a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 18px;
+
+    border:1px solid var(--border);
+    background:transparent;
+
+    color:var(--muted);
+
+    text-decoration:none;
+    text-transform:uppercase;
+
+    font-size:12px;
+    font-family:monospace;
+    letter-spacing:2px;
+
+    transition:all .25s ease;
+}
+
+.hero-links a:hover{
+    color:var(--text);
+    border-color:var(--accent);
+    transform:translateY(-2px);
+}
+    /* STATS ROW */
+    .stats { display: flex; gap: 40px; margin: 40px 0 80px; flex-wrap: wrap; }
+    .stat-num   { font-size: 28px; font-weight: bold; color: var(--text); display: block; font-family: monospace; }
+    .stat-label { font-size: 12px; color: var(--muted); }
+
+    /* SECTIONS */
+    section { margin-bottom: 72px; }
+    .sec-num { font-size: 12px; color: var(--muted); font-family: monospace; margin-bottom: 4px; }
+    h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); font-weight: normal; margin-bottom: 28px; font-family: monospace; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+
+    /* ABOUT */
+    .about-text { color: var(--muted); line-height: 1.9; }
+    .about-text strong { color: var(--text); font-style: italic; }
+
+    /* SKILLS TABLE */
+    .skills-list { display: flex; flex-direction: column; gap: 16px; }
+    .skill-row   { display: grid; grid-template-columns: 140px 1fr; gap: 16px; }
+    .skill-key   { font-size: 13px; color: var(--muted); font-family: monospace; padding-top: 2px; flex-shrink: 0; }
+    .skill-val   { font-size: 14px; color: var(--text); }
+
+    /* PROJECTS */
+    .project     { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .project:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .proj-top    { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+    .proj-name   { font-size: 17px; color: var(--text); }
+    .proj-year   { font-size: 12px; color: var(--muted); font-family: monospace; }
+    .proj-tech   { font-size: 12px; color: var(--accent); font-family: monospace; margin-bottom: 10px; }
+    .proj-desc   { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .proj-link   { display: inline-block; margin-top: 10px; font-size: 12px; color: var(--muted); text-decoration: none; font-family: monospace; }
+    .proj-link:hover { color: var(--text); }
+
+    /* HACKATHONS */
+    .hack        { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+    .hack:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .hack-top    { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; flex-wrap: wrap; gap: 8px; }
+    .hack-name   { font-size: 16px; color: var(--text); }
+    .hack-result { font-size: 12px; color: var(--accent); font-family: monospace; }
+    .hack-org    { font-size: 13px; color: var(--muted); margin-bottom: 8px; font-family: monospace; }
+    .hack-desc   { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+    /* ACHIEVEMENTS */
+    .achievements { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .achievements li { display: flex; gap: 16px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .ach-num { font-family: monospace; font-size: 12px; color: var(--border); flex-shrink: 0; padding-top: 2px; }
+    .achievements strong { color: var(--text); }
+
+.contact-text{
+    max-width:620px;
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:28px;
+}
+
+.contact-links{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    font:14px monospace;
+}
+
+.contact-links a{
+    color:var(--muted);
+    text-decoration:none;
+    transition:.25s;
+}
+
+.contact-links a:hover{
+    color:var(--accent);
+}
+
+.contact-links span{
+    color:var(--border);
+    user-select:none;
+}
+
+footer{
+    margin-top:90px;
+    padding-top:30px;
+    border-top:1px solid var(--border);
+    text-align:center;
+    color:var(--muted);
+    font:13px monospace;
+}
+
+footer em{
+    color:#60a5fa;
+    font-style:italic;
+
+}
+
+    @media (max-width: 500px) {
+      nav ul { gap: 14px; }
+      .skill-row { grid-template-columns: 1fr; gap: 4px; }
+      .stats { gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-left">
+        <a href="#" class="logo">HMP</a>
+
+    </div>
+
+<ul>
+    <li><a href="#about">About</a></li>
+    <li class="divider">|</li>
+
+    <li><a href="#skills">Skills</a></li>
+    <li class="divider">|</li>
+
+    <li><a href="#projects">Projects</a></li>
+    <li class="divider">|</li>
+
+    <li><a href="#achievements">Achievements</a></li>
+    <li class="divider">|</li>
+
+    <li><a href="#experience">Experience</a></li>
+    <li class="divider">|</li>
+
+    <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-sub">
+    B.Tech CS • BIT Bangalore • 2023–2027
+</div>
+
+<h1>
+    Harshitha <strong>M P</strong>
+</h1>
+
+<p>
+    Aspiring Software Developer focused on full-stack development,
+    backend systems, AI applications, and creating software that solves real problems.
+</p>
+
+    <div class="hero-links">
+
+        <a href="https://github.com/harshitha7104" target="_blank">
+            GitHub
+        </a>
+
+        <a href="https://linkedin.com/in/harshitha-acharya-81b734262" target="_blank">
+            LinkedIn
+        </a>
+
+        <a href="https://www.instagram.com/harshitha_acharya_7104" target="_blank">
+            Instagram
+        </a>
+
+        <a href="mailto:harshitha71004@gmail.com">
+            Email
+        </a>
+
+        <a href="tel:+918867476254">
+            Phone
+        </a>
+
+
+        
+
+    </div>
+
+</div>
+  
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-num">01</div>
+    <h2>About</h2>
+    <p class="about-text">
+    I'm an <strong>aspiring Software Developer</strong> and an
+    <strong>AI enthusiast</strong> who loves building software that solves
+    real-world problems. Watching AI transform the world is incredibly exciting,
+    and I enjoy exploring how it can make everyday systems smarter and more useful.
+
+    <br><br>
+
+    My biggest strengths are logical thinking, problem solving, adaptability,
+    and staying organized. I genuinely enjoy breaking down complex problems into
+    simple solutions, and there's nothing more satisfying than seeing an idea
+    come to life through code.
+
+    <br><br>
+
+    Outside of programming, I'm powered by coffee ☕, inspired by travel,
+    fascinated by philosophy, and always curious to learn something new.
+    Those experiences shape how I think, create, and approach challenges as a developer.
+</p>
+  </section>
+  <!-- EXPERIENCE -->
+<section id="experience">
+
+    <div class="sec-num">02</div>
+
+    <h2>Experience</h2>
+
+    <div class="project">
+
+        <div class="proj-top">
+            <span class="proj-name">AI Interview Platform Testing</span>
+            <span class="proj-year">May 2025 – Jul 2025</span>
+        </div>
+
+        <div class="proj-tech">
+            OpenIntervue • Industry Live Project • AI Testing
+        </div>
+
+        <p class="proj-desc">
+            Participated in a three-month live industry project with
+            <strong>Intervue Labs Private Limited (OpenIntervue)</strong>.
+            Conducted AI-powered interview simulations, evaluated platform
+            usability and response accuracy, identified usability issues,
+            and provided structured feedback that contributed to improving
+            the candidate assessment platform.
+        </p>
+
+    </div>
+
+</section>
+
+  <!-- SKILLS -->
+<section id="skills">
+
+    <div class="sec-num">03</div>
+
+    <h2>Skills</h2>
+
+    <div class="skills-list">
+
+        <div class="skill-row">
+            <span class="skill-key">Languages</span>
+            <span class="skill-val">
+                C++, Python
+            </span>
+        </div>
+
+        <div class="skill-row">
+            <span class="skill-key">CS Fundamentals</span>
+            <span class="skill-val">
+                Data Structures & Algorithms, Operating Systems, Database Management Systems,
+                Object-Oriented Programming, Software Development Life Cycle (SDLC),
+                System Design
+            </span>
+        </div>
+
+        <div class="skill-row">
+            <span class="skill-key">Frontend</span>
+            <span class="skill-val">
+                HTML5, CSS3, React.js
+            </span>
+        </div>
+
+        <div class="skill-row">
+            <span class="skill-key">Backend & APIs</span>
+            <span class="skill-val">
+                Node.js, Express.js, Flask, FastAPI, REST APIs
+            </span>
+        </div>
+
+        <div class="skill-row">
+            <span class="skill-key">AI & LLM</span>
+            <span class="skill-val">
+                LLM Integration, Prompt Engineering, Retrieval-Augmented Generation (RAG),
+                OpenAI API
+            </span>
+        </div>
+
+        <div class="skill-row">
+            <span class="skill-key">Databases</span>
+            <span class="skill-val">
+                SQL, MongoDB
+            </span>
+        </div>
+
+        <div class="skill-row">
+            <span class="skill-key">Developer Tools</span>
+            <span class="skill-val">
+                Git, GitHub, VS Code
+            </span>
+        </div>
+
+        <div class="skill-row">
+            <span class="skill-key">Core Strengths</span>
+            <span class="skill-val">
+                Problem Solving, Logical Reasoning, Full-Stack Development,
+                Backend Development, API Design, Software Architecture,
+                Analytical Thinking, Technical Communication, Debugging
+            </span>
+        </div>
+
+    </div>
+
+</section>
+
+  <!-- PROJECTS -->
+<section id="projects">
+    <div class="sec-num">04</div>
+    <h2>Featured Projects</h2>
+
+    <!-- ThreatLens -->
+    <div class="project">
+        <div class="proj-top">
+            <span class="proj-name">ThreatLens</span>
+            <span class="proj-year">2026</span>
+        </div>
+
+        <div class="proj-tech">
+            FastAPI • React • PostgreSQL • WebSockets • Ollama (Mistral LLM)
+        </div>
+
+        <p class="proj-desc">
+            Developed a full-stack cybersecurity platform for real-time intrusion detection and threat analysis.
+            Implemented live event monitoring using WebSockets, adaptive user-risk profiling,
+            rule-based attack detection, and AI-assisted threat investigation powered by a
+            locally hosted Mistral LLM. Built an interactive React dashboard with PostgreSQL-backed
+            event storage for security monitoring.
+        </p>
+
+        <a href="https://github.com/harshitha7104/ThreatLens"
+           target="_blank"
+           class="proj-link">
+            → View on GitHub
+        </a>
+    </div>
+
+    <!-- Vector Database -->
+    <div class="project">
+        <div class="proj-top">
+            <span class="proj-name">Modern Vector Database</span>
+            <span class="proj-year">2026</span>
+        </div>
+
+        <div class="proj-tech">
+            Python • FastAPI • Vector Embeddings • Semantic Search
+        </div>
+
+        <p class="proj-desc">
+            Built a lightweight vector database supporting semantic similarity search using
+            embedding vectors. Developed REST APIs for document ingestion, indexing, and
+            nearest-neighbor retrieval, demonstrating concepts used in Retrieval-Augmented
+            Generation (RAG) applications and modern AI search systems.
+        </p>
+
+        <a href="https://github.com/harshitha7104/modern-vector-database"
+           target="_blank"
+           class="proj-link">
+            → View on GitHub
+        </a>
+    </div>
+
+    <!-- Corporate Carpool -->
+    <div class="project">
+        <div class="proj-top">
+            <span class="proj-name">Corporate Carpool</span>
+            <span class="proj-year">2026</span>
+        </div>
+
+        <div class="proj-tech">
+            React • Node.js • Express.js • MongoDB
+        </div>
+
+        <p class="proj-desc">
+            Developed a full-stack corporate carpool platform that enables employees to create,
+            discover, and join shared rides. Designed secure backend APIs, responsive user
+            interfaces, and ride management features to encourage efficient and sustainable
+            workplace transportation.
+        </p>
+
+        <a href="https://github.com/harshitha7104/carpool"
+           target="_blank"
+           class="proj-link">
+            → View on GitHub
+        </a>
+    </div>
+
+    <!-- Flight Management -->
+    <div class="project">
+        <div class="proj-top">
+            <span class="proj-name">Flight Management System</span>
+            <span class="proj-year">2025</span>
+        </div>
+
+        <div class="proj-tech">
+            Flask • Python • Oracle Database • SQL • Docker
+        </div>
+
+        <p class="proj-desc">
+            Designed and developed a web-based flight management system supporting ticket
+            booking, cancellations, PNR generation, and flight scheduling. Built normalized
+            Oracle database schemas, optimized SQL queries, and containerized the application
+            using Docker for consistent deployment.
+        </p>
+
+        <a href="https://github.com/harshitha7104/Flight-management-system"
+           target="_blank"
+           class="proj-link">
+            → View on GitHub
+        </a>
+    </div>
+
+    <!-- Bangalore Route Finder -->
+    <div class="project">
+        <div class="proj-top">
+            <span class="proj-name">Bangalore Route Finder</span>
+            <span class="proj-year">2025</span>
+        </div>
+
+        <div class="proj-tech">
+            React • Node.js • Express.js • MongoDB • Dijkstra Algorithm
+        </div>
+
+        <p class="proj-desc">
+            Built a full-stack route optimization application that computes the shortest travel
+            path between locations in Bangalore using Dijkstra's algorithm. Implemented REST
+            APIs, dynamic route management, and an intuitive interface for efficient navigation.
+        </p>
+
+        <a href="https://github.com/harshitha7104/bangalore-route-finder"
+           target="_blank"
+           class="proj-link">
+            → View on GitHub
+        </a>
+    </div>
+
+    <!-- Heart Disease Predictor -->
+    <div class="project">
+        <div class="proj-top">
+            <span class="proj-name">Heart Disease Prediction System</span>
+            <span class="proj-year">2025</span>
+        </div>
+
+        <div class="proj-tech">
+            PyTorch • Flask • Streamlit • Scikit-learn
+        </div>
+
+        <p class="proj-desc">
+            Developed a machine learning application that predicts heart disease risk using
+            deep learning models trained on clinical datasets. Implemented preprocessing,
+            feature engineering, model training, evaluation, and browser-based inference
+            through Flask and Streamlit interfaces.
+        </p>
+
+        <a href="https://github.com/harshitha7104/heart-disease-predictor"
+           target="_blank"
+           class="proj-link">
+            → View on GitHub
+        </a>
+    </div>
+
+</section>
+
+    <!-- ──────────────────────────────────────────────────────
+         ADD A NEW PROJECT: copy the block above, paste here,
+         update the name, year, tech line, description & link.
+         ────────────────────────────────────────────────────── -->
+
+  <!-- ACHIEVEMENTS -->
+<section id="achievements">
+    <div class="sec-num">05</div>
+    <h2>Achievements</h2>
+
+    <ul class="achievements">
+        <li>
+            <span class="ach-num">01</span>
+            <span>
+                Solved <strong>500+ coding problems</strong> across
+                <strong>LeetCode, CodeChef, GeeksforGeeks, and HackerRank</strong>,
+                strengthening problem-solving skills in data structures and algorithms.
+            </span>
+        </li>
+
+        <li>
+            <span class="ach-num">02</span>
+            <span>
+                <strong>Runner-Up</strong> at <strong>Ideaverse 2025 – Ghumo India</strong>
+                for developing an innovative technology solution in a competitive hackathon.
+            </span>
+        </li>
+
+        <li>
+            <span class="ach-num">03</span>
+            <span>
+                <strong>Finalist</strong> at the
+                <strong>I-Solve Traffic Police Hackathon 2024</strong>,
+                selected among <strong>150+ participating teams</strong>.
+            </span>
+        </li>
+
+        <li>
+            <span class="ach-num">04</span>
+            <span>
+                Built and deployed multiple full-stack, AI/ML, and cybersecurity
+                applications using <strong>React, FastAPI, Flask, PostgreSQL, MongoDB, and Docker</strong>.
+            </span>
+        </li>
+    </ul>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <div class="sec-num">06</div>
+    <h2>Let's Connect</h2>
+
+    <p class="contact-text">
+        Whether it's an internship, a project, a startup idea, or just a conversation
+        about AI, coffee, or philosophy — I'd love to connect.
+    </p>
+
+    <div class="contact-links">
+        <a href="https://github.com/harshitha7104" target="_blank">GitHub</a>
+        <span>·</span>
+
+        <a href="https://linkedin.com/in/harshitha-acharya-81b734262" target="_blank">LinkedIn</a>
+        <span>·</span>
+
+        <a href="mailto:harshitha71004@gmail.com">Email</a>
+        <span>·</span>
+
+        <a href="https://www.instagram.com/harshitha_acharya_7104" target="_blank">Instagram</a>
+        <span>·</span>
+        
+        <a href="tel:+918867476254">Phone</a>
+    
+    </div>
+
+</section>
+
+<footer>
+    © 2025 Harshitha <em>M P</em>
+</footer>
+
+</body>
+</html>
