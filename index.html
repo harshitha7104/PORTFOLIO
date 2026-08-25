@@ -523,10 +523,45 @@
     </div>
 
 </section>
+    <!-- HOMEPAGE PROJECTS PREVIEW -->
+<section id="projects-preview">
+
+    <div class="sec-num">04</div>
+
+    <h2>Projects</h2>
+
+    <p class="about-text" style="margin-bottom: 24px;">
+        Selected work across data analytics, business decision systems,
+        artificial intelligence, and software infrastructure.
+    </p>
+
+    <div class="category-nav">
+
+        <button class="category-btn"
+                onclick="openCategoryAndNavigate('da')">
+            1. DATA & BUSINESS ANALYTICS
+            <span class="arrow">→</span>
+        </button>
+
+        <button class="category-btn"
+                onclick="openCategoryAndNavigate('aiml')">
+            2. AI / ML
+            <span class="arrow">→</span>
+        </button>
+
+        <button class="category-btn"
+                onclick="openCategoryAndNavigate('software')">
+            3. SOFTWARE & SYSTEMS
+            <span class="arrow">→</span>
+        </button>
+
+    </div>
+
+</section>
 
     <!-- ACHIEVEMENTS -->
     <section id="achievements">
-      <div class="sec-num">04</div>
+      <div class="sec-num">05</div>
       <h2>Achievements</h2>
       <ul class="achievements">
         <li>
@@ -557,7 +592,7 @@
 
     <!-- CONTACT -->
     <section id="contact">
-      <div class="sec-num">05</div>
+      <div class="sec-num">06</div>
       <h2>Let's Connect</h2>
       <p class="contact-text">
 Whether it's a conversation, a project collaboration, a new opportunity, or just connecting over shared interests — I'd love to connect.      </p>
@@ -799,56 +834,65 @@ Whether it's a conversation, a project collaboration, a new opportunity, or just
   </footer>
 
   <!-- DYNAMIC VIEW & TAB INTERACTION SCRIPT -->
-  <script>
-    function showPage(pageId, sectionId = null) {
-      // Toggle Views
-      document.querySelectorAll('.page-view').forEach(view => {
-        view.classList.remove('active');
-      });
+<script>
+  function showPage(pageId, sectionId = null) {
+    // Toggle Views
+    document.querySelectorAll('.page-view').forEach(view => {
+      view.classList.remove('active');
+    });
 
-      const targetView = document.getElementById(pageId + '-view') || document.getElementById(pageId);
-      if (targetView) {
-        targetView.classList.add('active');
-      }
-
-      // Update active state on nav
-      const navProjects = document.getElementById('nav-projects');
-      if (pageId === 'projects-page') {
-        navProjects.classList.add('active');
-      } else {
-        navProjects.classList.remove('active');
-      }
-
-      // Handle direct scrolling if navigating to a specific homepage section
-      if (sectionId && pageId === 'home') {
-        setTimeout(() => {
-          const sec = document.getElementById(sectionId);
-          if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    const targetView = document.getElementById(pageId + '-view') || document.getElementById(pageId);
+    if (targetView) {
+      targetView.classList.add('active');
     }
 
-    function switchCategory(catKey) {
-      // Update Tab Content
-      document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      const activeTab = document.getElementById('tab-' + catKey);
-      if (activeTab) {
-        activeTab.classList.add('active');
-      }
-
-      // Update Button Styles
-      document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      const activeBtn = document.getElementById('btn-' + catKey);
-      if (activeBtn) {
-        activeBtn.classList.add('active');
-      }
+    // Update active state on nav
+    const navProjects = document.getElementById('nav-projects');
+    if (pageId === 'projects-page') {
+      navProjects.classList.add('active');
+    } else {
+      navProjects.classList.remove('active');
     }
-  </script>
+
+    // Handle direct scrolling if navigating to a specific homepage section
+    if (sectionId && pageId === 'home') {
+      setTimeout(() => {
+        const sec = document.getElementById(sectionId);
+        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  function switchCategory(catKey) {
+    // Update Tab Content
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.classList.remove('active');
+    });
+
+    const activeTab = document.getElementById('tab-' + catKey);
+    if (activeTab) {
+      activeTab.classList.add('active');
+    }
+
+    // Update Button Styles
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    const activeBtn = document.getElementById('btn-' + catKey);
+    if (activeBtn) {
+      activeBtn.classList.add('active');
+    }
+  }
+
+  /* ===== ONLY NEW CODE ===== */
+  function openCategoryAndNavigate(catKey) {
+    switchCategory(catKey);
+    showPage('projects-page');
+  }
+
+</script>
 </body>
 </html>
